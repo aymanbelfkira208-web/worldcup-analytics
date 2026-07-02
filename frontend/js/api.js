@@ -1,7 +1,6 @@
 (function () {
   const sameOriginApi = `${window.location.origin}/api`;
-  const API_BASE_URL = window.WORLD_CUP_API_URL ||
-    (window.location.protocol === 'file:' ? 'http://localhost:5000/api' : sameOriginApi);
+  const API_BASE_URL = window.WORLD_CUP_API_URL || 'https://worldcup-analytics-backend.onrender.com/api';
 
   function buildUrl(path, params = {}) {
     const url = new URL(`${API_BASE_URL}${path}`);
