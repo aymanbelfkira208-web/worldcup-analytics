@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Teams | World Cup Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="World Cup Analytics home">
+        <span class="brand-mark">WCA</span>
+        <span>
+          <strong>World Cup Analytics</strong>
+          <small>FIFA World Cup 2026</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="team.html">Teams</a>
+        <a class="active" href="compare.html">Compare</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-band compact">
+        <div>
+          <p class="eyebrow">Head to head view</p>
+          <h1>Compare World Cup teams</h1>
+        </div>
+        <form class="compare-form" id="compareForm">
+          <input id="teamOneInput" list="teamOptions" type="search" autocomplete="off" placeholder="Team one">
+          <input id="teamTwoInput" list="teamOptions" type="search" autocomplete="off" placeholder="Team two">
+          <datalist id="teamOptions"></datalist>
+          <button type="submit">Compare</button>
+        </form>
+      </section>
+
+      <section class="notice hidden" id="compareNotice" role="status"></section>
+
+      <section class="compare-grid" id="compareCards">
+        <article class="team-card empty-state">No teams selected.</article>
+        <article class="team-card empty-state">No teams selected.</article>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="panel panel-wide">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chart</p>
+              <h2>Performance comparison</h2>
+            </div>
+          </div>
+          <div class="chart-box tall">
+            <canvas id="compareChart" aria-label="Team comparison chart"></canvas>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Team one</p>
+              <h2>Matches</h2>
+            </div>
+          </div>
+          <div id="teamOneMatches" class="match-list">
+            <p class="empty-state">No team data loaded.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Team two</p>
+              <h2>Matches</h2>
+            </div>
+          </div>
+          <div id="teamTwoMatches" class="match-list">
+            <p class="empty-state">No team data loaded.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/compare.js"></script>
+</body>
+</html>

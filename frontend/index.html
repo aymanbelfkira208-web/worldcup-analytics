@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="World Cup Analytics home">
+        <span class="brand-mark">WCA</span>
+        <span>
+          <strong>AYMAN BELFKIRA</strong>
+          <small>FIFA World Cup 2026</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="active" href="index.html">Dashboard</a>
+        <a href="team.html">Teams</a>
+        <a href="compare.html">Compare</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-band">
+        <div>
+          <p class="eyebrow">Live team intelligence</p>
+          <h1>World Cup 2026 team analytics dashboard</h1>
+        </div>
+        <form class="search-bar" id="teamSearchForm">
+          <input id="teamSearchInput" type="search" name="q" autocomplete="off" placeholder="Search teams">
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="notice hidden" id="dataNotice" role="status"></section>
+
+      <section class="kpi-grid" aria-label="Dashboard summary">
+        <article class="metric-card">
+          <span>Teams</span>
+          <strong id="teamCount">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Groups</span>
+          <strong id="groupCount">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Finished matches</span>
+          <strong id="finishedMatchCount">--</strong>
+        </article>
+        <article class="metric-card warning-card">
+          <span>Pending matches</span>
+          <strong id="pendingMatchCount">--</strong>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="panel panel-wide">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Standings</p>
+              <h2>Group table</h2>
+            </div>
+          </div>
+          <div id="standingsContainer" class="standings-stack">
+            <p class="empty-state">Loading standings...</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Teams</p>
+              <h2>Search results</h2>
+            </div>
+          </div>
+          <div id="teamsContainer" class="team-list">
+            <p class="empty-state">Loading teams...</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Schedule</p>
+              <h2>Matches</h2>
+            </div>
+          </div>
+          <div id="matchesContainer" class="match-list">
+            <p class="empty-state">Loading matches...</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chart</p>
+              <h2>Points leaders</h2>
+            </div>
+          </div>
+          <div class="chart-box">
+            <canvas id="standingsChart" aria-label="Standings points chart"></canvas>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chart</p>
+              <h2>Goals for and against</h2>
+            </div>
+          </div>
+          <div class="chart-box">
+            <canvas id="goalsChart" aria-label="Goals chart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

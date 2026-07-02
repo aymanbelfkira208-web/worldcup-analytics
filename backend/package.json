@@ -1,0 +1,16 @@
+{
+  "name": "worldcup-analytics-backend",
+  "version": "1.0.0",
+  "description": "Express API proxy for a FIFA World Cup 2026 analytics dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

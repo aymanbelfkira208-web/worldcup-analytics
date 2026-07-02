@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Analytics | World Cup Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="World Cup Analytics home">
+        <span class="brand-mark">WCA</span>
+        <span>
+          <strong>World Cup Analytics</strong>
+          <small>FIFA World Cup 2026</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a class="active" href="team.html">Teams</a>
+        <a href="compare.html">Compare</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-band compact">
+        <div>
+          <p class="eyebrow">Team profile</p>
+          <h1 id="pageTitle">Team analytics</h1>
+        </div>
+        <form class="search-bar" id="teamLookupForm">
+          <input id="teamLookupInput" list="teamOptions" type="search" autocomplete="off" placeholder="Team name">
+          <datalist id="teamOptions"></datalist>
+          <button type="submit">Load team</button>
+        </form>
+      </section>
+
+      <section class="notice hidden" id="teamNotice" role="status"></section>
+
+      <section class="team-hero" id="teamHero">
+        <div class="crest-tile" id="teamCrest">--</div>
+        <div>
+          <p class="eyebrow" id="teamMeta">World Cup 2026</p>
+          <h2 id="teamName">No team selected</h2>
+          <p id="teamSubtext" class="muted-text">Data will load from the backend API.</p>
+        </div>
+      </section>
+
+      <section class="kpi-grid" id="teamStatsGrid" aria-label="Team statistics"></section>
+
+      <section class="dashboard-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Standing</p>
+              <h2>Group position</h2>
+            </div>
+          </div>
+          <div id="teamStandings" class="standings-stack">
+            <p class="empty-state">No team data loaded.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Matches</p>
+              <h2>Team fixtures</h2>
+            </div>
+          </div>
+          <div id="teamMatches" class="match-list">
+            <p class="empty-state">No team data loaded.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chart</p>
+              <h2>Record</h2>
+            </div>
+          </div>
+          <div class="chart-box">
+            <canvas id="teamRecordChart" aria-label="Team record chart"></canvas>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chart</p>
+              <h2>Goals</h2>
+            </div>
+          </div>
+          <div class="chart-box">
+            <canvas id="teamGoalsChart" aria-label="Team goals chart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/team.js"></script>
+</body>
+</html>
